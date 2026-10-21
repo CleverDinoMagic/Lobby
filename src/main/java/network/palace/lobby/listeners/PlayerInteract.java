@@ -2,7 +2,6 @@ package network.palace.lobby.listeners;
 
 import network.palace.core.Core;
 import network.palace.core.player.CPlayer;
-import network.palace.cosmetics.Cosmetics;
 import network.palace.lobby.Lobby;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -26,11 +25,7 @@ public class PlayerInteract implements Listener {
                 Lobby.getHubSelector().openInventory(player);
                 break;
             case ENDER_CHEST:
-                try {
-                    player.openInventory(Cosmetics.getInventoryUtil().getMainInventory(player));
-                } catch (NoClassDefFoundError e) {
-                    player.sendMessage(ChatColor.RED + "There's an error loading Cosmetics right now, sorry!");
-                }
+                player.sendMessage(ChatColor.YELLOW + "Cosmetics are unavailable on this server.");
                 break;
             case IRON_PLATE:
                 if (Lobby.getParkourUtil().checkInParkour(player)) {
